@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_20_225221) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_21_214539) do
   create_table "deliveries", force: :cascade do |t|
-    t.boolean "arrived"
+    t.boolean "arrived", default: false
     t.text "description"
     t.date "supposed_to_arrive_on"
     t.text "details"

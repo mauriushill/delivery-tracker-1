@@ -25,11 +25,11 @@
         </div>
 
         <div>
-          <label for="supposed_to_arrive_on_box">
-            Suppose to arrive on
+          <label for="supposed_to_arrive_on">
+            Supposed to arrive on
           </label>
 
-          <input type="date" id="supposed_to_arrive_on_box" name="query_supposed_to_arrive_on">
+          <input type="date" id="supposed_to_arrive_on" name="query_supposed_to_arrive_on">
         </div>
 
         <div>
@@ -48,10 +48,10 @@
   </div>
 
   <hr>
-
+  <div class="waiting_on">
   <h2>Waiting on</h2>
 
-  <% @list_of_deliveries.each do |package| %>
+  <% @waiting_on_deliveries.each do |package| %>
     <ul>
 
       <li>
@@ -67,9 +67,18 @@
 
       </li>
     </ul>
-  <% end %>
+ <% end %>
+ <div>
 
 <hr>
 
-<div>
+<div class="received">
 <h2>Received</h2>
+<% @list_of_deliveries.each do |recieve| %>
+<ul>
+  <li><div><%= recieve.description %></div>
+  <div><%= recieve.updated_at %></div>
+  </li>
+  </ul>
+ <% end %>
+</div>
