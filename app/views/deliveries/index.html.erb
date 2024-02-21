@@ -49,36 +49,40 @@
 
   <hr>
   <div class="waiting_on">
-  <h2>Waiting on</h2>
+    <h2>Waiting on</h2>
 
-  <% @waiting_on_deliveries.each do |package| %>
-    <ul>
+    <% @waiting_on_deliveries.each do |package| %>
+      <ul>
 
-      <li>
-        <div><%= package.description %></div>
-        <div>Supposed to arrive on <%= package.supposed_to_arrive_on %></div>
-        <div><%= package.details %></div>
-                <div>
-          <form action="/modify_delivery/<%= package.id %>" method="post">
-            <input type="hidden" name="arrived" value="true">
-            <button>Mark as received</button>
-          </form>
-        </div>
+        <li>
+          <div><%= package.description %></div>
+          <div>Supposed to arrive on <%= package.supposed_to_arrive_on %></div>
+          <div><%= package.details %></div>
+          <div>
+            <form action="/modify_delivery/<%= package.id %>" method="post">
+              <input type="hidden" name="arrived" value="true">
+              <button >Mark as received</button>
+            </form>
+          </div>
+          
 
-      </li>
-    </ul>
- <% end %>
- <div>
+        </li>
+      </ul>
+    <% end %>
+      
+    </div>
 
-<hr>
+      <hr>
 
-<div class="received">
-<h2>Received</h2>
-<% @list_of_deliveries.each do |recieve| %>
-<ul>
-  <li><div><%= recieve.description %></div>
-  <div><%= recieve.updated_at %></div>
-  </li>
-  </ul>
- <% end %>
-</div>
+      <div class="received">
+        <h2>Received</h2>
+        <% @list_of_deliveries.each do |recieve| %>
+          <ul>
+            <li>
+              <div><%= recieve.description %></div>
+              <div><%= recieve.updated_at %></div>
+              <a href="/delete_delivery/<%= recieve.id %>">Delete</a>
+            </li>
+          </ul>
+        <% end %>
+      </div>
