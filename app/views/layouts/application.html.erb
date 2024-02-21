@@ -11,6 +11,29 @@
   </head>
 
   <body>
-    <%= yield %>
+  <nav>
+  <a href="/deliveries">Delivery Tracker</a>
+  |
+  <% if current_user != nil %>
+
+  <a href="/users/edit">Edit profile</a>
+  |
+  <a href="/users/sign_out">Sign out</a>
+  |
+  <% else %>
+  <a href="users/sign_up">Sign up</a>
+  |
+  <a href="/users/sign_in">Sign in</a>
+  <% end %>
+  </nav>
+ <p style="color: green"><%= notice %></p>
+
+  <p style="color: red"><%= alert %></p>
+
+  
+  
+
+   
+  <%= yield %>
   </body>
 </html>
