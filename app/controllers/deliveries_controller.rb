@@ -19,11 +19,10 @@ class DeliveriesController < ApplicationController
 
   def create
     the_delivery = Delivery.new
-    the_delivery.arrived = params.fetch("query_arrived", false)
     the_delivery.description = params.fetch("query_description")
-    the_delivery.suppose_to_arrive_on = params.fetch("query_suppose_to_arrive_on")
+    the_delivery.supposed_to_arrive_on = params.fetch("query_supposed_to_arrive_on")
     the_delivery.details = params.fetch("query_details")
-    the_delivery.user_id = params.fetch("query_user_id")
+    
 
     if the_delivery.valid?
       the_delivery.save
